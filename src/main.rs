@@ -1,3 +1,7 @@
+mod store;
+use store::Store;
 fn main() {
-    println!("Cache RS");
+    let mut s = Store::new();
+    s.set("k".to_string(), "v".to_string());
+    println!("{:?}", s.get("k"));
 }
