@@ -1,7 +1,10 @@
 mod store;
-use store::Store;
+use std::net::TcpListener;
+use std::io::prelude::*;
 fn main() {
-    let mut s = Store::new();
-    s.set("k".to_string(), "v".to_string());
-    println!("{:?}", s.get("k"));
+    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+    for stream in listener.incoming() {
+        let mut stream = stream.unwrap();
+        stream.write(b"Hello").unwrap();
+    }
 }
