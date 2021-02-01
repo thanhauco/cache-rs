@@ -11,13 +11,13 @@ fn handle_client(mut stream: TcpStream, store: Arc<Mutex<Store>>) {
     stream.read(&mut buffer).unwrap();
     let req = String::from_utf8_lossy(&buffer[..]);
     let resp = match Command::parse(&req) {
-        Command::Set(k, v) => {
-            store.lock().unwrap().set(k, v);
+        Command::Set(k, v, ttl) => {
+            store.lock().unwrap().set(k, v, ttl);
             "OK".to_string()
         },
         Command::Get(k) => {
             match store.lock().unwrap().get(&k) {
-                Some(v) => v.clone(),
+                Some(v) => v,
                 None => "(nil)".to_string(),
             }
         },
