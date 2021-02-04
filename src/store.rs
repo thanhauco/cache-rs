@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 use std::time::{Instant, Duration};
+use std::fs::File;
+use std::io::Write;
 struct Entry {
     val: String,
     exp: Option<Instant>,
@@ -26,5 +28,11 @@ impl Store {
             return Some(e.val.clone());
         }
         None
+    }
+    pub fn save(&self) {
+        let mut f = File::create("dump.rdb").unwrap();
+        for (k, v) in &self.data {
+            writeln!(f, "{},{}", k, v.val).unwrap();
+        }
     }
 }
