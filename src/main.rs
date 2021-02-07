@@ -21,6 +21,10 @@ fn handle_client(mut stream: TcpStream, store: Arc<Mutex<Store>>) {
                 None => "(nil)".to_string(),
             }
         },
+        Command::Save => {
+            store.lock().unwrap().save();
+            "OK".to_string()
+        },
         Command::Unknown => "ERR".to_string(),
     };
     stream.write(resp.as_bytes()).unwrap();
