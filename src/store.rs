@@ -17,7 +17,6 @@ impl Store {
     }
     pub fn set(&mut self, key: String, value: String, ttl: u64) {
         if self.data.len() >= self.capacity {
-            // Simple random eviction for now
             let k = self.data.keys().next().unwrap().clone();
             self.data.remove(&k);
         }
@@ -42,5 +41,15 @@ impl Store {
         for (k, v) in &self.data {
             writeln!(f, "{},{}", k, v.val).unwrap();
         }
+    }
+}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_set_get() {
+        let mut s = Store::new();
+        s.set("a".to_string(), "b".to_string(), 0);
+        assert_eq!(s.get("a"), Some("b".to_string()));
     }
 }
