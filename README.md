@@ -1,8 +1,13 @@
 # Cache RS
 
 ## Features
-- TCP Server
-- Redis-like Protocol
-- TTL Support
-- Persistence (RDB)
-- LRU Eviction
+- Async TCP (Tokio)
+- AOF Persistence
+- Sharding Support
+- RESP3 Protocol
+- Replication
+- Lua Scripting
+- Benchmarks
+
+## Status
+Enterprise Ready V3.
