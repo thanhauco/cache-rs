@@ -1,3 +1,2 @@
-use jemallocator::Jemalloc;
-#[global_allocator]
-static GLOBAL: Jemalloc = Jemalloc;
+mod metrics;
+// ... setup http server for metrics
