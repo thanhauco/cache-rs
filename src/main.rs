@@ -1,2 +1,1 @@
-mod metrics;
-// ... setup http server for metrics
+std::thread::Builder::new().name("worker".into()).spawn(|| {});
