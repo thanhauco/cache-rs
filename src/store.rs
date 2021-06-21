@@ -1,4 +1,2 @@
-use crate::error::CacheError;
-pub fn save() -> Result<(), CacheError> {
-    Ok(())
-}
+use hashbrown::HashMap;
+// Use faster hashmap
