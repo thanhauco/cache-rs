@@ -1,2 +1,2 @@
-use hashbrown::HashMap;
-// Use faster hashmap
+mod bloom;
+// check bloom before map lookup
