@@ -1,0 +1,1 @@
+pub enum Policy { LRU, LFU, Random }
