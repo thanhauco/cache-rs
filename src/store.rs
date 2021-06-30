@@ -1,2 +1,1 @@
-mod bloom;
-// check bloom before map lookup
+// Add LFU logic
