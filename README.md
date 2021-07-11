@@ -1,13 +1,13 @@
 # Cache RS
 
 ## Features
-- Async TCP (Tokio)
-- AOF Persistence
-- Sharding Support
-- RESP3 Protocol
-- Replication
-- Lua Scripting
-- Benchmarks
+- Enterprise V3 Features
+- Jemalloc
+- SIMD Optimization
+- Prometheus Metrics
+- Bloom Filters
+- Fuzz Testing
+- Cargo Audit
 
 ## Status
-Enterprise Ready V3.
+Enterprise Scale V4.
