@@ -1,5 +1,9 @@
-use tokio::signal;
-async fn main() {
-    signal::ctrl_c().await.unwrap();
-    println!("Shutdown");
+use clap::Parser;
+#[derive(Parser)]
+struct Cli {
+    #[clap(short, long)]
+    port: u16,
+}
+fn main() {
+    let args = Cli::parse();
 }
